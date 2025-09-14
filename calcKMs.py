@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = ""  # adicione aqui a sua chave
+API_KEY = " "  # adicione aqui a sua chave
 
 # Função para calcular a distância entre dois locais usando a API do Google Maps
 def calcular_distancia(origem, destino, api_key):
