@@ -6,6 +6,16 @@ Além disso, buscamos otimizar nossos recursos com a previsibilidade de demanda 
 
 -----
 
+## 👥 Equipe
+
+| Nome                                            | RM       |
+| ----------------------------------------------- | -------- |
+| Giuliana Fernandes (representante)              | RM563086 |
+| Henrique Soares Meira                           | RM565646 |
+| Francisco Emmanuel Mendes de Almeida Rezende Silvério | RM563573 |
+
+-----
+
 ### 1\. Análise Exploratória e Engenharia de Atributos
 
   - **Limpeza e Tratamento de Dados:** Dados de compras de passagens foram carregados, renomeados para maior clareza e tratados, incluindo a conversão de colunas de data e hora para formatos adequados.
