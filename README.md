@@ -10,7 +10,7 @@ Além disso, buscamos otimizar nossos recursos com a previsibilidade de demanda 
 
 | Nome                                            | RM       |
 | ----------------------------------------------- | -------- |
-| Giuliana Fernandes (representante)              | RM563086 |
+| Giuliana Fernandes                              | RM563086 |
 | Henrique Soares Meira                           | RM565646 |
 | Francisco Emmanuel Mendes de Almeida Rezende Silvério | RM563573 |
 
