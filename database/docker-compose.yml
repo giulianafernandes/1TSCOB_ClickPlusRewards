@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: clickbus_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clickbus_db
+      POSTGRES_USER: clickbus_admin
+      POSTGRES_PASSWORD: ClickBus2024!@#
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - clickbus_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clickbus_admin -d clickbus_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: clickbus_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@clickbus.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_DISABLE_POSTFIX: 'true'
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - clickbus_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+    driver: local
+    name: clickbus_postgres_data
+  pgadmin_data:
+    driver: local
+    name: clickbus_pgadmin_data
+
+networks:
+  clickbus_network:
+    driver: bridge
+    name: clickbus_network
